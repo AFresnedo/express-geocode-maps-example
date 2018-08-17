@@ -13,23 +13,28 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ejsLayouts);
 app.use(express.static(__dirname + '/public'));
 
+var places = [{name: 'General Assembly', address:
+  '1218 3rd Ave, Seattle WA 98101'}];
+
 app.get('/', function(req, res) {
-    db.place.findAll().then(function(places) {
-        res.render('index', { places: places });
-    }).catch(function(err) {
-        res.send({ message: 'error', error: err });
-    });
+    // db.place.findAll().then(function(places) {
+        // res.render('index', { places: places });
+    // }).catch(function(err) {
+        // res.send({ message: 'error', error: err });
+    // });
+  res.render('index', { places: places });
 });
 
 app.post('/places', function(req, res) {
-    db.place.create({
-        name: req.body.name,
-        address: req.body.address
-    }).then(function(place) {
-        res.redirect('/');
-    }).catch(function(err) {
-        res.send({ message: 'error', error: err });
-    });
+    // db.place.create({
+        // name: req.body.name,
+        // address: req.body.address
+    // }).then(function(place) {
+        // res.redirect('/');
+    // }).catch(function(err) {
+        // res.send({ message: 'error', error: err });
+    // });
+  res.redirect('/');
 });
 
 var server = app.listen(process.env.PORT || 3000, function() {
