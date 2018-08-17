@@ -1,9 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var ejsLayouts = require('express-ejs-layouts');
-var db = require('./models');
+// var db = require('./models');
 var rowdy = require('rowdy-logger');
 var app = express();
+var geocoder = require('geocoder');
 
 rowdy.begin(app);
 
