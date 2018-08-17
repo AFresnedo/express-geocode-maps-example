@@ -34,6 +34,12 @@ app.post('/places', function(req, res) {
     // }).catch(function(err) {
         // res.send({ message: 'error', error: err });
     // });
+  console.log(req.body);
+  places.push({
+    name: req.body.name,
+    address: req.body.address
+  });
+  // TODO taylor doesn't have this, but i added it to fix hang bug
   res.redirect('/');
 });
 
